@@ -2,8 +2,8 @@ FROM alpine
 
 WORKDIR /opt/app
 
-# 安装所需的工具，包括 nodejs, curl, tzdata, cron 等
-RUN apk add --no-cache nodejs curl tzdata cron unzip
+# 安装所需的工具，包括 nodejs, curl, tzdata, cronie, unzip 等
+RUN apk add --no-cache nodejs curl tzdata cronie unzip
 
 # 设置时区
 ENV TIME_ZONE=Asia/Shanghai
