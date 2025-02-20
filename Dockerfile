@@ -1,3 +1,5 @@
+自用sub-store自用反代docker
+
 FROM alpine
 
 WORKDIR /opt/app
@@ -10,7 +12,7 @@ RUN cp /usr/share/zoneinfo/$TIME_ZONE /etc/localtime && echo $TIME_ZONE > /etc/t
 
 # RUN apk del tzdata
 
-ADD https://github.com/sub-store-org/Sub-Store/releases/latest/download/sub-store.bundle.js /opt/app/sub-store.bundle.js
+ADD https://substore.v6oo.eu.org/sub-store.bundle.js /opt/app/sub-store.bundle.js
 
 ADD https://github.com/sub-store-org/Sub-Store-Front-End/releases/latest/download/dist.zip /opt/app/dist.zip
 
@@ -32,3 +34,4 @@ RUN chmod 777 -R /opt/app
 CMD mkdir -p /opt/app/data; cd /opt/app/data; \
   META_FOLDER=/opt/app/http-meta HOST=:: node /opt/app/http-meta.bundle.js > /opt/app/data/http-meta.log 2>&1 & echo "HTTP-META is running..."; \
   SUB_STORE_BACKEND_API_HOST=:: SUB_STORE_FRONTEND_HOST=:: SUB_STORE_FRONTEND_PORT=3001 SUB_STORE_FRONTEND_PATH=/opt/app/frontend SUB_STORE_DATA_BASE_PATH=/opt/app/data node /opt/app/sub-store.bundle.js
+
