@@ -1,20 +1,4 @@
-FROM alpine
-
-WORKDIR /opt/app
-
-RUN apk add --no-cache nodejs curl tzdata
-
-ENV TIME_ZONE=Asia/Shanghai 
-
-RUN cp /usr/share/zoneinfo/$TIME_ZONE /etc/localtime && echo $TIME_ZONE > /etc/timezone
-
-# RUN apk del tzdata
-
-ADD https://substore.v6oo.eu.org/sub-store.bundle.js /opt/app/sub-store.bundle.js
-
-ADD https://github.com/sub-store-org/Sub-Store-Front-End/releases/latest/download/dist.zip /opt/app/dist.zip
-
-RUN unzip dist.zip; mv dist frontend; rm dist.zip
+st frontend; rm dist.zip
 
 ADD https://github.com/xream/http-meta/releases/latest/download/http-meta.bundle.js /opt/app/http-meta.bundle.js
 
