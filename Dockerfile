@@ -1,5 +1,3 @@
-自用sub-store自用反代docker
-
 FROM alpine
 
 WORKDIR /opt/app
